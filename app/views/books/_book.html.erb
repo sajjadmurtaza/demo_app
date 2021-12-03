@@ -1,0 +1,12 @@
+<tr>
+      <td><%= book.uid %></td>
+      <td><%= book.title %></td>
+      <td><%= book.description %></td>
+      <td><%= book.price %></td>
+      <td><%= free?(book.free) %></td>
+      <td><%= book.tags.pluck(:name).join(', ') %></td>
+      <td>
+        <%= link_to "Show", book, class: "btn btn-info" %>
+      </td>
+    </tr>
+</div>

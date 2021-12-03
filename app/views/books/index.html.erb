@@ -1,0 +1,18 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">UID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Is it Free?</th>
+      <th scope="col">Tags</th>
+      <th scope="col" colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @books %>
+  </tbody>
+</table>
+
+<%= link_to "New Book", new_book_path, class: "btn btn-success" %>
