@@ -5,6 +5,9 @@ class BooksController < ApplicationController
 
   def index
     @books = Book.all
+
+    @books = @books.by_price(params[:price]) if params[:price].present?
+    @books = @books.by_tags(params[:tag_ids]) if params[:tag_ids].present?
   end
 
   def show; end
@@ -26,7 +29,7 @@ class BooksController < ApplicationController
           end
         end
 
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
+        format.html { redirect_to books_path, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +41,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        format.html { redirect_to books_path, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }

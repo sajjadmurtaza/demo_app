@@ -1,3 +1,12 @@
+Search/Filter:
+
+<%= form_with(url: '/books', method: 'get', local: true) do %>
+  Price: <%= text_field_tag(:price) %>
+  Tags: <%= select_tag "tag_ids", options_from_collection_for_select(Tag.all, "id", "name"), :multiple => true %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<br /><hr />
 <table class="table">
   <thead>
     <tr>

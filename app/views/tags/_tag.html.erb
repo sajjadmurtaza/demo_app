@@ -1,0 +1,7 @@
+<tr>
+    <td><%= tag.name %></td>
+    <td><%= tag.books.pluck(:title).join(', ') %></td>
+    <td>
+      <%= link_to "Add tag to more Books", edit_tag_path(tag), class: "btn btn-info" %>
+    </td>
+</tr>
